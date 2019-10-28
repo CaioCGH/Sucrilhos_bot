@@ -12,13 +12,14 @@ import suggestion_handler as sh
 import requests
 import json
 import keys
+import sys
 # Bot configuration
 
 #bot = telebot.TeleBot(keys.keys['path_test'])
-bot = telebot.TeleBot(keys.keys['sucrilhos_bot'])
+bot = telebot.TeleBot(keys.keys[sys.argv[1]])
 session = {}
 session['greeting_message'] = "Bom dia, grupo!"
-session['have_already_sent_greeting'] = False
+session['have_already_sent_greeting'] = True
 session['help_terator'] = 0
     
 def to_timestamp(millis):

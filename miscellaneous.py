@@ -1,5 +1,5 @@
 
-def send_welcome(bot, message):
+def vtncp(bot, message):
     print("got vtncp!")
     s = """................./¯/)...................
 ................/¯ ./....................
