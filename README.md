@@ -36,7 +36,7 @@ algo parecido com
 bot = telebot.TeleBot(keys.keys['sucrilhos_bot'])
 ```
 
-Troque `sucrilhos_bot` belo nome do bot em `keys`
+Troque `sucrilhos_bot` pelo nome do bot em `keys`
 
 
 Salve e rode o `beta_start.sh` (pode precisar dare permissão (use chmod))
