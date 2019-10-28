@@ -39,9 +39,9 @@ bot = telebot.TeleBot(keys.keys['sucrilhos_bot'])
 Troque `sucrilhos_bot` belo nome do bot em `keys`
 
 
-Salve e rode o `beta_start.sh` (pode precisar dare permissão (use chmod))
+Salve e rode o `beta_start.sh` (pode precisar dar permissão (use chmod))
 ```
-./beta_start.sh
+./start-beta.sh <nome_do_bot>
 ```
 
 Vai abrir uma outra screen no seu terminal, rodando o bot. Para sair dela **sem** matar o bold
@@ -50,7 +50,7 @@ O screen gera um arquivo de log no mesmo diretório, o `screenlog.0`.De uma olha
  aconteceu.
 Para saber se o bot está rodando:
 ```
-ps -aux | grep pythpn3
+ps -aux | grep python3
 ```
 
 Note que estaremos rodando um outro programa por cima que tentará ressubir o bot sempre que ele cair.
@@ -59,4 +59,4 @@ Para terminar o processo do Bot: estude sobre Screen ou Kill/Sigterm.
 
 Mais Updates?
 
-Caio Hirakawa 27/10/2019
+Caio Hirakawa 28/10/2019
