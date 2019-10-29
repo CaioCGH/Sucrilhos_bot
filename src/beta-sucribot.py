@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#main file
 import telebot
 import datetime
 from datetime import datetime
@@ -13,10 +14,13 @@ import requests
 import json
 import keys
 import sys
-# Bot configuration
+import os.path
+import create_tables_sucrilhos as cts
 
-#bot = telebot.TeleBot(keys.keys['path_test'])
+# Bot configuration
 bot = telebot.TeleBot(keys.keys[sys.argv[1]])
+
+#session variables
 session = {}
 session['greeting_message'] = "Bom dia, grupo!"
 session['have_already_sent_greeting'] = True
@@ -24,7 +28,6 @@ session['help_terator'] = 0
     
 def to_timestamp(millis):
     return str(datetime.fromtimestamp(millis))
-
 
 ################################################################################
 ##                              MESSAGE HANDLERS                              ##
@@ -134,7 +137,11 @@ def handle_any_message( message):
     if random.randint(0,1000) == 69:
         bot.send_message(message.chat.id, "EITA GARRADA DURA!")
 
-
+print("helo?")
+if not os.path.isfile('sucrilhos.db'):
+    cts.create_tables()
+    print("created tables!")
 print("Starting bot")
 bot.polling()
 
+print("ended pooling")

@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  bot:
+    restart: on-failure
+    build: .
+    container_name: sucrilhos_bot
+    volumes:
+      - "./:/usr/src"
+    command: "python3 ./src/beta-sucribot.py path_test"
+
+volumes:
+  deps:

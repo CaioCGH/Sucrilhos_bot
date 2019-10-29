@@ -1,0 +1,17 @@
+# Git metadata
+.git
+.gitignore
+
+# Docker configuration files
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Python stuff
+__pycache__
+
+# Documentation
+README.md
+
+# Environment variables
+.env

@@ -1,7 +1,6 @@
-.*
+
 keys.py
 log*
 screenlog*
 sucrilhos.db
 __pycache__
-!.gitignore
