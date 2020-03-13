@@ -7,7 +7,7 @@ services:
     container_name: sucrilhos_bot
     volumes:
       - "./:/usr/src"
-    command: "python3 ./src/beta-sucribot.py path_test"
+    command: "python3 ./src/beta-sucribot.py sucrilhos_bot"
 
 volumes:
   deps:

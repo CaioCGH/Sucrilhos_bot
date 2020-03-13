@@ -55,7 +55,7 @@ def update_event_description(username, event_name, description):
     
 def delete_event(event_name):
     conn = sqlite3.connect('sucrilhos.db')
-    conn.execute("DELETE FROM event WHERE name = ?", (event_name,));
+    conn.execute("DELETE FROM event WHERE name = ?", (event_name,))
     conn.commit()
     conn.close()
     
@@ -86,3 +86,19 @@ def create_suggestion(username, suggestion_description):
     conn.commit()
     conn.close()
     
+def insert_corona(username, text):
+    conn = sqlite3.connect('sucrilhos.db')
+    cursor = conn.cursor()
+    conn.execute("INSERT INTO corona (username, text) VALUES (?, ?)", (username, text))
+    print("new entry")
+    conn.commit()
+    cursor.close()
+    conn.close()
+        
+def find_all_corona():
+    conn = sqlite3.connect('sucrilhos.db')
+    cursor = conn.execute("SELECT * FROM corona")
+    rows = cursor.fetchall()
+    conn.close()
+    print(str(rows))
+    return rows

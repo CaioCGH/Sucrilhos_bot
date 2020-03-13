@@ -22,6 +22,12 @@ def create_tables():
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                 description TEXT);''')
     print("CREATE TABLE bot_suggestion")
+    c.execute('''CREATE TABLE corona(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                text TEXT);''')
+    print("CREATE TABLE corona")
                     
     conn.commit()
     conn.close()

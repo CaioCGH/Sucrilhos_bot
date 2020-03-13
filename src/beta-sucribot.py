@@ -16,6 +16,7 @@ import keys
 import sys
 import os.path
 import create_tables_sucrilhos as cts
+import util
 
 # Bot configuration
 bot = telebot.TeleBot(keys.keys[sys.argv[1]])
@@ -106,9 +107,9 @@ def ex_rate(message):
 def create_suggestion(message):
     sh.create_suggestion(bot, message)
 
-@bot.message_handler(commands=['vtncp'])
-def vtncp(message):
-    misc.vtncp(bot,message)
+# @bot.message_handler(commands=['vtncp'])
+# def vtncp(message):
+#     misc.vtncp(bot,message)
     
 @bot.message_handler(command=['remount_greeting'])
 def remount_greeting(message):
@@ -116,10 +117,31 @@ def remount_greeting(message):
    session['greeting_message'] = util.get_arg(message.text)
    bot.reply_to(message, "Remontado! " + session['greeting_message'])
     
+
+  ################### - corona - ##########################  
+@bot.message_handler(commands=['add_corona'])
+def add_corona(message):
+    print('aehooo')
+    arg = util.get_arg(message.text)
+    if (arg == None or len(arg) == 0) :
+        bot.reply_to(message, "Oh seu animal, tem q mandar alguma coisa né?!")
+    else :
+        dbi.insert_corona(message.from_user.username, arg)
+        bot.reply_to(message, "Corona salvo!")
+
+@bot.message_handler(commands=['corona']) 
+def list_corona(message):
+    corona = dbi.find_all_corona()
+    s = ""
+    for row in corona:
+        s += str(row[3]) + "\n"
+        
+    bot.send_message(message.chat.id, s)
+
 ################### - general messages - ##########################
 @bot.message_handler(func=lambda message: True)
 def handle_any_message( message):
-    print(to_timestamp(message.date) + " " + message.from_user.username + ": " + message.text)
+    print(str(to_timestamp(message.date)) + " " + str(message.from_user.username) + ": " + str(message.text))
     
     if message.content_type == "text":
         f = open("log" + str(message.chat.id) + ".txt","a+")

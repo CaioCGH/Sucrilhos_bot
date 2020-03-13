@@ -6,6 +6,7 @@ c = conn.cursor() # The database will be saved in the location where your 'py' f
 c.execute('''DROP TABLE IF EXISTS commandment''')
 c.execute('''DROP TABLE IF EXISTS event''')
 c.execute('''DROP TABLE IF EXISTS bot_suggestion''')
+c.execute('''DROP TABLE IF EXISTS corona''')
           
 conn.commit()
 conn.close()
